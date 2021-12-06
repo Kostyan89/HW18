@@ -40,3 +40,6 @@ class MovieView(Resource):
         req_json = request.json
         movie_service.filter_by(uid).partially_update(req_json)
         return "", 204
+
+    def get_by_director(self, director_id: int):
+        return movie_service.get_by_director(director_id), 200

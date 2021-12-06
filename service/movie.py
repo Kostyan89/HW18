@@ -26,3 +26,6 @@ class MovieService:
         if "name" in movie_d:
             movie.name = movie_d.get("name")
         self.movie_dao.update(movie)
+
+    def get_by_director(self, director_id):
+        self.movie_dao.filter_by(director_id).get_one()
