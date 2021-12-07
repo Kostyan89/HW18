@@ -18,8 +18,8 @@ class MoviesView(Resource):
 
     def post(self):
         req_json = request.json
-        movie_service.create(req_json)
-        return "", 201
+        new_movie = movie_service.create(req_json)
+        return movies_schema.dump(new_movie), 201
 
 @movie_ns.route('/<int:uid>')
 class MovieView(Resource):

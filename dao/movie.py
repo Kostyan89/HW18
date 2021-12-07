@@ -30,6 +30,8 @@ class MovieDAO:
         self.session.add(movie)
         self.session.commit()
 
+    def get_movie_by_dir(self, director_id):
+        self.session.query(Movie).filter_by(director_id).get_all()
 
 
 
