@@ -28,4 +28,4 @@ class MovieService:
         self.movie_dao.update(movie)
 
     def get_movies_by_director(self, did):
-        self.movie_dao. get_movie_by_dir(did)
+        self.movie_dao.get_movie_by_dir(did)

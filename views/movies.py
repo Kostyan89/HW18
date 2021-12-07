@@ -29,8 +29,8 @@ class MovieView(Resource):
 
     def put(self, uid: int):
         req_json = request.json
-        movie_service.filter_by(uid).update(req_json)
-        return "", 204
+        updated_movie = movie_service.filter_by(uid).update(req_json)
+        return movie_schema.dump(updated_movie), 204
 
     def delete(self, uid: int):
         movie_service.delete(uid)
@@ -42,4 +42,4 @@ class MovieView(Resource):
         return "", 204
 
     def get_by_director(self, director_id: int):
-        return movie_service.get_by_director(director_id), 200
+        return movie_service.get_movies_by_director(director_id), 200
